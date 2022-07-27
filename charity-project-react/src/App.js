@@ -11,6 +11,8 @@ import NavBar from "./navBar";
 import usePlacesAutocomplete, {getGeocode, getLatLng} from "use-places-autocomplete";
 import {Combobox, ComboboxInput, ComboboxOption, ComboboxPopover} from "@reach/combobox";
 import "@reach/combobox/styles.css"
+import {Route, Routes} from "react-router-dom";
+import LogIn from "./LogIn";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -54,16 +56,23 @@ export default function App(){
     return(
 
         <div>
-            <Search panTo = {panTo}/>
             <NavBar/>
+            <div>
+                <Routes>
+                    <Route path={"/"} element={<GoogleMap
+                        mapContainerStyle={mapContainerStyle}
+                        zoom={8}
+                        center={center}
+                        options={options}
+                        onLoad={onMapLoad}
+                    >
+                        <Search panTo = {panTo}/>
+                    </GoogleMap>}/>
+                    <Route path={"/LogIn"} element={<LogIn/>}/>
+                </Routes>
 
-            <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                zoom={8}
-                center={center}
-                options={options}
-               onLoad={onMapLoad}
-            ></GoogleMap>
+
+            </div>
         </div>
     )
 

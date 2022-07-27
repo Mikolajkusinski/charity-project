@@ -1,12 +1,14 @@
+import {Link} from "react-router-dom";
+
 export default function NavBar(){
 
 
     return(
         <nav className={"nav"}>
-            <a href={"/"} className={"title"}>Miejsca Pamięci <span role={"img"} aria-label={"znicz"}>🪔</span></a>
+            <Link to={"/"} className={"title"}>Miejsca Pamięci <span role={"img"} aria-label={"znicz"}>🪔</span></Link>
             <ul>
                 <li>
-                    <a href={"/"}>Sign in</a>
+                    <Link to={"/LogIn"}>Log in</Link>
                 </li>
             </ul>
         </nav>
